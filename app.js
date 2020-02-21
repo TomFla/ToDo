@@ -1,6 +1,5 @@
 const addForm = document.querySelector(".add");
-const list = document.querySelector(".list-group");
-const delToDo = document.querySelectorAll(".delete");
+const list = document.querySelector(".todos");
 
 const generateTemplate = todo => {
   const html = `<li class="list-group-item d-flex justify-content-between align-items-center">
@@ -22,6 +21,10 @@ addForm.addEventListener("submit", e => {
 // end of adding new Todos
 
 // Delete ToDos
-delToDo.addEventListener("click", e => {
-  console.log(e.target.value);
+list.addEventListener("click", e => {
+  if (e.target.classList.contains("delete")) {
+    e.target.parentElement.remove();
+  }
 });
+
+// searching todo list
